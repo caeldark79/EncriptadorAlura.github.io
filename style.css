@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url(../Imagenes/fondo10.png);
+    background-image: url(/Imagenes/fondo10.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -58,7 +58,7 @@ main {
 
 .mensaje {
     background: transparent;
-    background-image: url("../Imagenes/candado3.png");
+    background-image: url("/Imagenes/candado3.png");
     background-repeat: no-repeat;
     background-position: center;
     border: none;
