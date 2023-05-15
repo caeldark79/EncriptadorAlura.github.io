@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8>
+    <meta http-equiv="X-UA-Compatibl" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8fff2fcec9.js" crossorigin="anonymous"></script>
+    <title>Challege Encriptdor Alura</title>
+</head>
+<body>
+    <header>
+        <img src="Imagenes/logo.svg" alt="Logo Alura" class="logo">
+    </header>
+    <main>
+        <section>
+            <textarea class="text-area" cols="30" rows="10" placeholder="Ingresa aqui el texto que quieres encriptar o desencriptar"></textarea>
+            <div>
+                <h6 class="informacion">Solo letras minúsculas y sin acentos</h6>
+            </div>  
+            <div class="botones">
+                <button class="btn-encriptar" onclick="botonEncriptar()">Encriptar</button>
+                <button class="btn-desencriptar" onclick="botonDesencriptar()">Desencriptar</button>
+            </div>
+        </section>
+        <section>
+            <textarea class="mensaje" cols="20" rows="10" readonly></textarea>
+            <div>
+                <button class="copiar" onclick="copiarMensaje()">Copiar</button>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div> 
+        <h4>Contacto</h4>
+        </div>
+        <section class="redesSociales">
+            <a href="https://github.com/caeldark79?tab=repositories"><i class="fa-brands fa-github fa-2xl"></i></a>
+            <a href="https://www.linkedin.com/in/cristian-gutierrez-coordti/"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+        </section>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
