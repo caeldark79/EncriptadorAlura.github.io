@@ -1,51 +1,79 @@
-const textArea= document.querySelector(".text-area");
-const mensaje= document.querySelector(".mensaje");
+function botonEncriptar() {
+    let texto = document.getElementById("text-area").value;
+    let mensaje = document.getElementById("mensaje");
+    let tituloMensaje = document.getElementById("titulo-mensaje");
+    let imagenes = document.getElementById("imagenPrincipal");
 
-function botonEncriptar(){
+    let textoCifrado = texto
+    .replace(/e/gi, "enter")
+    .replace(/i/gi, "imes")
+    .replace(/a/gi, "ai")
+    .replace(/o/gi, "ober")
+    .replace(/u/gi, "ufat");
 
-    const textoEncriptado = encriptar(textArea.value);
-    mensaje.value = textoEncriptado;
-    textArea.value = "";
-    mensaje.style.backgroundImage="none";
-
-}
-
-function encriptar(stringEncriptado){
-    let matrizCodigo = [["e", "enter"],["i", "imes"],["a", "ai"],["o", "ober"],["u", "ufat"]];
-    stringEnciptado = stringEncriptado.toLowerCase();
-
-    for (let i = 0; i < matrizCodigo.length; i++) {
-        if(stringEncriptado.includes(matrizCodigo[i][0])){
-            stringEncriptado = stringEncriptado.replaceAll(matrizCodigo[i][0],matrizCodigo[i][1]);
-        }
+    if (texto.length != 0) {
+    imagenes.src = "Imagenes/candado5.jpg";
+    mensaje.value = textoCifrado;
+    tituloMensaje.textContent = "Texto encriptado con éxito";
+    } else {
+    imagenes.src = "Imagenes/candado6.jpg";
+    swal("Ooops!", "Debes ingresar un texto", "warning");
     }
-        return stringEncriptado;
 }
 
-function botonDesencriptar(){
+function botonDesencriptar() {
+    let texto = document.getElementById("text-area").value;
+    let mensaje = document.getElementById("mensaje");
+    let tituloMensaje = document.getElementById("titulo-mensaje");
+    let imagenes = document.getElementById("imagenPrincipal");
 
-    const textoEncriptado = desencriptar(textArea.value);
-    mensaje.value = textoEncriptado;
-    textArea.value = "";
-}
+    let textoCifrado = texto
+    .replace(/enter/gi, "e")
+    .replace(/imes/gi, "i")
+    .replace(/ai/gi, "a")
+    .replace(/ober/gi, "o")
+    .replace(/ufat/gi, "u");
 
-function desencriptar(stringdesencriptado){
-    let matrizCodigo = [["e", "enter"],["i", "imes"],["a", "ai"],["o", "ober"],["u", "ufat"]];
-    stringdesencriptado = stringdesencriptado.toLowerCase();
-
-    for (let i = 0; i < matrizCodigo.length; i++) {
-        if(stringdesencriptado.includes(matrizCodigo[i][1])){
-            stringdesencriptado = stringdesencriptado.replaceAll(matrizCodigo[i][1],matrizCodigo[i][0]);
-        }
+    if (texto.length != 0) {
+    imagenes.src = "Imagenes/candado7.jpg";
+    mensaje.value = textoCifrado;
+    tituloMensaje.textContent = "Texto desencriptado con éxito";
+    } else {
+        imagenes.src = "Imagenes/candado6.jpg";
+        swal("Ooops!", "Debes ingresar un texto", "warning");
     }
-        return stringdesencriptado;
 }
-
 function copiarMensaje() {
-    const mensaje = document.querySelector(".mensaje");
-    mensaje.select();
-    document.execCommand("copy");
-    mensaje.value = "";
-    document.querySelector(".text-area").value = "";
-    mensaje.style.backgroundImage = "url('Imagenes/candado3.png')";
+    let mensaje = document.getElementById("mensaje");
+
+    if (mensaje.value.length !== 0) {
+        navigator.clipboard.writeText(mensaje.value)
+        .then(() => {
+        Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Mensaje Copiado Con Exito',
+                showConfirmButton: false,
+                timer: 1500
+        }).then(() => {
+            resetForm();
+        });
+        })
+        .catch((error) => {
+        console.error("Error al copiar el mensaje:", error);
+        });
+    } else {
+        Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'No hay mensaje para copiar',
+        });
+    }
+}
+
+function resetForm() {
+    document.getElementById("text-area").value = "";
+    document.getElementById("mensaje").value = "";
+    document.getElementById("titulo-mensaje").textContent = "Ningún Mensaje fue Encontrado";
+    document.getElementById("imagenPrincipal").src = "Imagenes/candado6.jpg";
 }

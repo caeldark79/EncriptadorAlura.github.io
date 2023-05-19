@@ -1,49 +1,54 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <meta charset="utf-8>
-    <meta http-equiv="X-UA-Compatibl" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/8fff2fcec9.js" crossorigin="anonymous"></script>
-    <title>Challege Encriptdor Alura</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <title>Challenge Encriptador Alura</title>
 </head>
 <body>
-    <header>
-        <img src="Imagenes/logo.svg" alt="Logo Alura" class="logo">
-    </header>
-    <main>
-        <section>
-            <textarea class="text-area" cols="30" rows="10" placeholder="Ingresa aqui el texto que quieres encriptar o desencriptar"></textarea>
-            <div>
-                <h6 class="informacion">Solo letras minúsculas y sin acentos</h6>
-            </div>  
-            <div class="botones">
-                <button class="btn-encriptar" onclick="botonEncriptar()">Encriptar</button>
-                <button class="btn-desencriptar" onclick="botonDesencriptar()">Desencriptar</button>
-            </div>
-        </section>
-        <section>
-            <textarea class="mensaje" cols="20" rows="10" readonly></textarea>
-            <div>
-                <button class="copiar" onclick="copiarMensaje()">Copiar</button>
-
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div> 
-        <h4>Contacto</h4>
+  <header>
+    <img src="Imagenes/logo.svg" alt="Logo Alura" class="logo">
+  </header>
+  <div class="container">
+    <div class="encriptar"> 
+      <textarea name="text-area" class="text-area" id="text-area" cols="30" rows="10" placeholder="Ingresa aquí el texto que quieres encriptar o desencriptar"></textarea>
+      <div class="terminos">
+        <p>Solo letras minúsculas y sin acentos</p>
+      </div>  
+    </div> 
+    <div class="botones">
+      <button class="btn-encriptar" type="button" onclick="botonEncriptar()">Encriptar</button>
+      <button class="btn-desencriptar" type="button" onclick="botonDesencriptar()">Desencriptar</button>
+    </div>
+    <div class="encriptado">
+      <img src="Imagenes/candado6.jpg" alt="" id="imagenPrincipal">
+      <div class="mensaje-encriptado" id="mensaje-encriptado">
+        <h2 id="titulo-mensaje">Ningún Mensaje fue Encontrado</h2>
+        <textarea name="mensaje" class="mensaje" id="mensaje" cols="20" rows="10" readonly></textarea>  
+      </div>
+      <div>
+        <button class="copiar" onclick="copiarMensaje()">Copiar</button>
+      </div>    
+    </div>
+  </div> 
+  <div class="footer">
+    <span class="desarrollador"> Desarrollado por Cristian Gutierrez</span>
+      <div class="redesSociales">
+        <a href="https://www.linkedin.com/in/cristian-gutierrez-coordti/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="https://github.com/caeldark79?tab=repositories" target="_blank"><i class="fab fa-github fa-2x" style="color: #7e38e5;"></i></a>
         </div>
-        <section class="redesSociales">
-            <a href="https://github.com/caeldark79?tab=repositories"><i class="fa-brands fa-github fa-2xl"></i></a>
-            <a href="https://www.linkedin.com/in/cristian-gutierrez-coordti/"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
-        </section>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+  </div>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://kit.fontawesome.com/8fff2fcec9.js" crossorigin="anonymous"></script>
 </body>
 </html>
